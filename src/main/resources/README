@@ -1,1 +1,25 @@
-Please add your static resources here
+1. Run the Derby ij tool.
+
+On Windows platforms:
+java -jar %DERBY_HOME%\lib\derbyrun.jar ij
+ij version 10.2
+
+On UNIX Korn Shell platforms:
+java -jar $DERBY_HOME/lib/derbyrun.jar ij
+ij version 10.2
+
+2. Create the database and open a connection to it using the embedded driver.
+CONNECT 'jdbc:derby:mytestdb;create=true';
+
+3. Create a table 
+    CREATE TABLE TESTENTITY
+(
+ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+NAME VARCHAR(24) NOT NULL,
+CREATIONDATE DATE,
+PRIMARY KEY (id)
+)
+
+4. Insert three records.
+INSERT INTO TESTENTITY (NAME, CREATIONDATE) VALUES ('Test1','2017-01-01'),('Test2', '2017-02-14'),('Test3','2017-03-20' );
+
