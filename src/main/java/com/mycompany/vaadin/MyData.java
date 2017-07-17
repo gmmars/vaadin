@@ -13,13 +13,13 @@ private PreparedStatement stmntAdd;
 private PreparedStatement stmntDel;
 
        public MyData() {
-        this.url ="jdbc:derby://localhost:1527/mytestdb";
+        this.url ="jdbc:derby://localhost:1527/testdb";
            }
     
     public void connectDB(){
 try
     {
-    Connection con=DriverManager.getConnection(url, "test", "test");
+    Connection con=DriverManager.getConnection(url);
     stmntSelect=con.prepareStatement("SELECT * FROM testentity");
     stmntAdd=con.prepareStatement(addSql);
     stmntDel=con.prepareStatement(delSql);
